@@ -1,0 +1,126 @@
+<mvc:View
+        height="100%"
+        controllerName="sap.ui.message.controller.workOrderExecution.editList"
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:f="sap.ui.layout.form"
+>
+    <Page title="编辑工单"
+          showNavButton="true"
+          navButtonPress="onNavBack"
+          class="sapUiResponsiveContentPadding">
+        <content>
+            <Toolbar>
+                <Title text="编辑工单信息" level="H1" />
+                <ToolbarSpacer />
+            </Toolbar>
+            <f:SimpleForm
+                    minWidth="1024"
+                    editable="false"
+                    layout="ResponsiveGridLayout"
+                    labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"
+                    columnsL="1" columnsM="1">
+                <f:content>
+                    <Label text="工单号"/>
+                    <Input value="2123"
+                           description=""
+                           valueLiveUpdate="true"
+                           placeholder="请填写工单号"
+                    />
+                    <Label text="物料描述"/>
+                    <TextArea value="描述描述..." placeholder="请填写物料规格"/>
+                    <Label text="物料规格"/>
+                    <Input value="200x190cm"
+                           description=""
+                           valueLiveUpdate="true"
+                           placeholder="请填写物料描述"
+                    />
+                    <Label text="工单数量"/>
+                    <Input value="200"
+                           description=""
+                           type="Number"
+                           valueLiveUpdate="true"
+                           placeholder="请填写工单数量"
+                    />
+                    <Label text="已完成数量" />
+                    <Input value="100"
+                           type="Number"
+                           description=""
+                           valueLiveUpdate="true"
+                           placeholder="请填写已完成数量"
+                    />
+                    <Label text="计划开始时间"/>
+                    <DateTimePicker
+                            value="2020年12月17日 下午3:05:29"
+                            placeholder="请选择计划开始时间"
+                            valueFormat="yyyy-MM-dd-HH-mm-ss"
+                            minutesStep="3" secondsStep="5"
+                            change="handleChange"
+                            class="sapUiSmallMarginBottom"/>
+                    <Label text="计划完成时间"/>
+                    <DateTimePicker
+                            value="2020年12月19日 下午3:05:29"
+                            placeholder="请选择计划完成时间"
+                            valueFormat="yyyy-MM-dd-HH-mm-ss"
+                            minutesStep="3" secondsStep="5"
+                            change="handleChange"
+                            class="sapUiSmallMarginBottom"/>
+                    <Label text="上工序"/>
+                    <Input value="11"
+                           placeholder="请填写上工序"
+                           description=""
+                           valueLiveUpdate="true"
+                    />
+                    <Label text="上工序状态"/>
+                    <ComboBox
+                            id="selectItem"
+                            items="{
+					                    path: 'optionStatus>/optionStatus',
+					                    sorter: {path: 'id'}
+				                    }"
+                            value="{/value}"
+                            placeholder="请选择上工序状态"
+                    >
+                        <core:ListItem key="{optionStatus>value}" text="{optionStatus>name}"/>
+                    </ComboBox>
+                    <Label text="上工序完成时间"/>
+                    <DateTimePicker
+                            value="2020年12月17日 下午3:05:29"
+                            placeholder="请选择上工序完成时间"
+                            valueFormat="yyyy-MM-dd-HH-mm-ss"
+                            minutesStep="3" secondsStep="5"
+                            change="handleChange"
+                            class="sapUiSmallMarginBottom"/>
+                    <Label text="工位数量" />
+                    <Input value="12"
+                           placeholder="请填写工位数量"
+                           type="Number"
+                           description=""
+                           valueLiveUpdate="true"
+                    />
+                    <Label text="工序号"/>
+                    <Input value="2222"
+                           placeholder="请填写工位号"
+                           description=""
+                           valueLiveUpdate="true"
+                    />
+                    <Label text="下工序名称"/>
+                    <Input value="名称名称"
+                           placeholder="请填写下工序名称"
+                           description=""
+                           valueLiveUpdate="true"
+                    />
+                    <Label text="批号"/>
+                    <Input value="2020/12/17"
+                           placeholder="请填写批号"
+                           description=""
+                           valueLiveUpdate="true"
+                    />
+                    <Button type="Accept" text="保存" press="saveButton"/>
+                    <Button type="Default" text="返回" press="backButton"/>
+                </f:content>
+            </f:SimpleForm>
+        </content>
+    </Page>
+</mvc:View>

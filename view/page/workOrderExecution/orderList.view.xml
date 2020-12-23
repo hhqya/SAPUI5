@@ -1,0 +1,90 @@
+<mvc:View
+        controllerName="sap.ui.message.controller.workOrderExecution.orderList"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+>
+    <Page id="EmployeeOverviewParent" title="工单列表"
+          showNavButton="true"
+          navButtonPress="onNavBack"
+          class="sapUiResponsiveContentPadding">
+        <content>
+            <Table id="employeesTable"
+                   items="{/SalesOrder}"
+                   itemPress="onItemPressed">
+                <headerToolbar>
+                    <Toolbar>
+                        <Button press="notButton" text="未完成工单"/>
+                        <SearchField id="searchField" search="onSearchEmployeesTable" width="50%"
+                                     placeholder="请输入工单号或者扫码"/>
+                        <!--				<Button icon="sap-icon://sort" press="onSortButtonPressed" />-->
+                        <Button icon="sap-icon://add" press="addButton" text="新增"/>
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column id="employeeIDCol" width="50px">
+                        <Text text="销售凭证"/>
+                    </Column>
+                    <Column id="firstNameCol" width="100px" minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="创建日期"/>
+                    </Column>
+                    <Column id="lastNameCol" width="100px" minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="时间"/>
+                    </Column>
+                    <Column id="addressCol" width="100px" minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="凭证类别"/>
+                    </Column>
+                    <Column id="cityCol" width="100px" minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="销售凭证类型"/>
+                    </Column>
+                    <Column id="regionCol" width="100px" minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="净值"/>
+                    </Column>
+                    <Column id="postalCodeCol" width="100px" minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="凭证货币"/>
+                    </Column>
+                    <Column id="countryCol" width="100px" minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="产品组"/>
+                    </Column>
+                    <Column minScreenWidth="Tablet" width="100px" demandPopin="true" hAlign="Center">
+                        <Text text="业务范围"/>
+                    </Column>
+                    <Column minScreenWidth="Tablet" width="100px" demandPopin="true" hAlign="Center">
+                        <Text text="凭证条件"/>
+                    </Column>
+                    <Column minScreenWidth="Tablet" width="100px" demandPopin="true" hAlign="Center">
+                        <Text text="要求的交货日期"/>
+                    </Column>
+                    <Column minScreenWidth="Tablet" width="100px" demandPopin="true" hAlign="Center">
+                        <Text text="您的参考"/>
+                    </Column>
+                    <Column id="cz" minScreenWidth="Tablet" width="100px" demandPopin="true">
+                        <Text text="操作"></Text>
+                    </Column>
+                    <Column id="edit" minScreenWidth="Tablet" demandPopin="true"></Column>
+                    <Column id="info" minScreenWidth="Tablet" demandPopin="true"></Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <Text text="{Vbeln}"/>
+                            <Text text="{Erdat}"/>
+                            <Text text="{Erzet}"/>
+                            <Text text="{Vbtyp}"/>
+                            <Text text="{Auart}"/>
+                            <Text text="{Netwr}"/>
+                            <Text text="{Waerk}"/>
+                            <Text text="{Spart}"/>
+                            <Text text="{Gsber}"/>
+                            <Text text="{Knumv}"/>
+                            <Text text="{Vdatu}"/>
+                            <Text text="{Ihrez}"/>
+                            <Button text="删除" press="deleteButton" type="Reject" icon="sap-icon://delete"/>
+                            <Button text="修改" icon="sap-icon://edit" press="updateButton"/>
+                            <Button text="详情" icon="sap-icon://detail-view" press="infoButton"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

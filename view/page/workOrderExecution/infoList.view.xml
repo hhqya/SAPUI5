@@ -1,0 +1,59 @@
+<mvc:View
+        height="100%"
+        controllerName="sap.ui.message.controller.workOrderExecution.infoList"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:f="sap.ui.layout.form"
+>
+    <Page title="工单信息"
+          showNavButton="true"
+          navButtonPress="onNavBack"
+          class="sapUiResponsiveContentPadding">
+        <content>
+            <Toolbar>
+                <Title text="工单详细信息" level="H1" />
+                <ToolbarSpacer />
+            </Toolbar>
+            <f:SimpleForm
+                    minWidth="1024"
+                    editable="false"
+                    layout="ResponsiveGridLayout"
+                    labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"
+                    columnsL="1" columnsM="1">
+                <f:content>
+                    <Label text="工单号" />
+                    <Text  text="764234" />
+                    <Label text="物料描述" />
+                    <Text  text="11-2323/A13,背板" />
+                    <Label text="物料规格" />
+                    <Text  text="200X190cm" />
+                    <Label text="工单数量" />
+                    <Text  text="300" />
+                    <Label text="已完成数量" />
+                    <Text  text="175" />
+                    <Label text="计划开始时间"/>
+                    <Text  text="2020年12月17日 上午11:27:32" />
+                    <Label text="计划完成时间" />
+                    <Text  text="2020年12月22日 上午11:27:32" />
+                    <Label text="上工序" />
+                    <Text  text="123" />
+                    <Label text="上工序状态" />
+                    <Text  text="正常" />
+                    <Label text="上工序完成时间" />
+                    <Text  text="2020年12月17日 上午11:27:32" />
+                    <Label text="工位数量" />
+                    <Text  text="12" />
+                    <Label text="工序号" />
+                    <Text  text="321" />
+                    <Label text="下工序名称" />
+                    <Text  text="背板" />
+                    <Label text="批号" />
+                    <Text  text="2020/12/17" />
+                    <Label text="图片"/>
+                    <Image src="http://192.168.100.32:8080/file/1.jpg"  width="500px"/>
+                    <Button type="Default" text="返回" press="backButton"/>
+                </f:content>
+            </f:SimpleForm>
+        </content>
+    </Page>
+</mvc:View>

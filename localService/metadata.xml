@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+           xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+                       m:DataServiceVersion="1.0">
+        <Schema Namespace="ZVBAKVBAP_SRV" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+                xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+                xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+
+            <EntityType Name="SalesOrder">
+                <Key>
+                    <PropertyRef Name="Vbeln"/>
+                </Key>
+                <Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="10"
+                          p8:StoreGeneratedPattern="Identity"
+                          xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
+                <Property Name="Erdat" Type="Edm.DateTime" Nullable="false" Precision="7" Unicode="true"
+                          FixedLength="false"/>
+                <Property Name="Erzet" Type="Edm.Time" Nullable="false" Precision="0" Unicode="true"
+                          FixedLength="false"/>
+                <Property Name="Vbtyp" Type="Edm.String" Nullable="false" MaxLength="4" Unicode="true"
+                          FixedLength="false"/>
+                <Property Name="Auart" Type="Edm.String" Nullable="false" MaxLength="4" Unicode="true"
+                          FixedLength="false"/>
+                <Property Name="Netwr" Type="Edm.Decimal" Nullable="false" Precision="16" Unicode="true"
+                          FixedLength="false"/>
+                <Property Name="Waerk" Type="Edm.String" Nullable="false" MaxLength="5" Unicode="true"
+                          FixedLength="false"/>
+                <Property Name="Spart" Type="Edm.String" Nullable="false" MaxLength="2" Unicode="true"
+                          FixedLength="false"/>
+                <Property Name="Gsber" Type="Edm.String" Nullable="false" MaxLength="4" Unicode="true"
+                          FixedLength="false"/>
+                <Property Name="Knumv" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Vdatu" Type="Edm.DateTime" Nullable="false" Precision="7"/>
+                <Property Name="Ihrez" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <NavigationProperty Name="NavFromHeadToItem"
+                                    Relationship="ZVBAKVBAP_SRV.Salesorderitem_ass"
+                                    FromRole="FromRole_Salesorderitem_ass" ToRole="ToRole_Salesorderitem_ass"/>
+            </EntityType>
+            <EntityType Name="SalesOrderItems">
+                <Key>
+                    <PropertyRef Name="Vbeln"/>
+                    <PropertyRef Name="Posnr"/>
+                </Key>
+                <Property Name="Vbeln" Type="Edm.String" MaxLength="10" Nullable="false"
+                          p8:StoreGeneratedPattern="Identity"
+                          xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation"/>
+                <Property Name="Posnr" Type="Edm.String" MaxLength="6" Nullable="false" Unicode="true"/>
+                <Property Name="Matnr" Type="Edm.String" MaxLength="40" Nullable="false" Unicode="true"/>
+                <Property Name="Matkl" Type="Edm.String" MaxLength="9" Nullable="false" Unicode="true"/>
+                <Property Name="Abgru" Type="Edm.String" MaxLength="2"/>
+                <Property Name="Prodh" Type="Edm.String" MaxLength="18" Nullable="false" Unicode="true"/>
+                <Property Name="Umziz" Type="Edm.Decimal" Precision="5" Nullable="=true" Unicode="false"/>
+                <Property Name="Umzin" Type="Edm.Decimal" Precision="5" Nullable="=true" Unicode="false"/>
+                <Property Name="Meins" Type="Edm.String" MaxLength="3" Nullable="=true" Unicode="false"/>
+                <Property Name="Spart" Type="Edm.String" MaxLength="2" Nullable="=true" Unicode="false"/>
+                <Property Name="Gsber" Type="Edm.String" MaxLength="4" Nullable="=true" Unicode="false"/>
+                <Property Name="Netwr" Type="Edm.Decimal" Precision="16" Nullable="=true" Unicode="false"/>
+                <Property Name="Waerk" Type="Edm.String" MaxLength="5" Nullable="=true" Unicode="false"/>
+                <Property Name="Kwmeng" Type="Edm.Decimal" Precision="15" Nullable="=true" Unicode="false"/>
+                <Property Name="Kbmeng" Type="Edm.Decimal" Precision="15" Nullable="=true" Unicode="false"/>
+                <Property Name="Vrkme" Type="Edm.String" MaxLength="3" Nullable="=true" Unicode="false"/>
+                <Property Name="Vbelv" Type="Edm.String" MaxLength="10" Nullable="=true" Unicode="false"/>
+                <Property Name="Posnv" Type="Edm.String" MaxLength="6" Nullable="=true" Unicode="false"/>
+                <Property Name="Vgbel" Type="Edm.String" MaxLength="10" Nullable="=true" Unicode="false"/>
+                <Property Name="Vgpos" Type="Edm.String" MaxLength="6" Nullable="=true" Unicode="false"/>
+                <Property Name="Werks" Type="Edm.String" MaxLength="4" Nullable="=true" Unicode="false"/>
+                <Property Name="Lgort" Type="Edm.String" MaxLength="4" Nullable="=true" Unicode="false"/>
+                <Property Name="Vstel" Type="Edm.String" MaxLength="4" Nullable="=true" Unicode="false"/>
+            </EntityType>
+
+            <Association Name="Salesorderitem_ass">
+                <End Role="FromRole_Salesorderitem_ass" Type="ZVBAKVBAP_SRV.SalesOrder" Multiplicity="1"/>
+                <End Role="ToRole_Salesorderitem_ass" Type="ZVBAKVBAP_SRV.SalesOrderItems" Multiplicity="*"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Salesorderitem_ass">
+                        <PropertyRef Name="Vbeln"/>
+                    </Principal>
+                    <Dependent Role="ToRole_Salesorderitem_ass">
+                        <PropertyRef Name="Vbeln"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+
+            <EntityContainer Name="ZVBAKVBAP_SRV_Entities"
+                             p7:LazyLoadingEnabled="true"
+                             m:IsDefaultEntityContainer="true"
+                             xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+
+                <EntitySet Name="SalesOrderSet" EntityType="ZVBAKVBAP_SRV.SalesOrder"/>
+                <EntitySet Name="SalesOrderItemsSet" EntityType="ZVBAKVBAP_SRV.SalesOrderItems"/>
+
+                <AssociationSet Name="Salesorderitem_assSet" Association="ZVBAKVBAP_SRV.Salesorderitem_ass">
+                    <End EntitySet="SalesOrderSet" Role="FromRole_Salesorderitem_ass"/>
+                    <End EntitySet="SalesOrderItemsSet" Role="ToRole_Salesorderitem_ass"/>
+                </AssociationSet>
+
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

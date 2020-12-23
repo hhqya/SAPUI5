@@ -1,0 +1,14 @@
+<mvc:View
+        height="100%"
+        controllerName="sap.ui.message.controller.showImage.image"
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:f="sap.ui.layout.form"
+>
+    <Page title="查看图片"
+          showNavButton="true"
+          navButtonPress="onNavBack"
+          class="sapUiResponsiveContentPadding">
+    </Page>
+</mvc:View>

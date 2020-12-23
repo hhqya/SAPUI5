@@ -1,0 +1,29 @@
+<mvc:View
+        controllerName="sap.ui.message.controller.Home"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc">
+        <Page title="主页" class="sapUiResponsiveContentPadding">
+            <content>
+                <Button
+                        id="stationClockBtn"
+                        text="工位打卡"
+                        press="toStationClock"
+                        class="sapUiTinyMarginEnd"/>
+                <Button
+                        id="workOrderBtn"
+                        text="工单执行"
+                        press="toWorkList"
+                        class="sapUiTinyMarginEnd"/>
+                <Button
+                        id="showMoneyBtn"
+                        text="工资查看"
+                        press="toShowMoney"
+                        class="sapUiTinyMarginEnd"/>
+                <Button
+                        id="showImageBtn"
+                        text="查看图纸"
+                        press="toShowImage"
+                        class="sapUiTinyMarginEnd"/>
+            </content>
+        </Page>
+</mvc:View>

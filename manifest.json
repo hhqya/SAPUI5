@@ -1,0 +1,147 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.1.0",
+		"id": "sap.ui.message",
+		"type": "application",
+		"title": "appTitle",
+		"description": "appDescription",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"dataSources": {
+			"ZSMZ":{
+				"uri": "http://localhost:8081/HTTPS://ides.zsmz.com:44301/sap/opu/odata/sap/ZVBAKVBAP_SRV",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"rootView": "sap.ui.message.view.App",
+		"dependencies": {
+			"minUI5Version": "1.30",
+			"libs": {
+				"sap.m": {
+
+				}
+			}
+		},
+		"models": {
+			"MZ": {
+				"dataSource": "ZSMZ",
+				"settings":{
+					"serviceUrlParams": {
+	        		 	"sap-client": "300"
+	         		 },
+	         		 "metadataUrlParams":{
+	         		 	"sap-client": "300"
+	         		 },
+	         		 "disableHeadRequestForToken": true,
+					 "useBatch": false
+				}
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "sap.ui.message.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"transition": "slide"
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "appHome",
+					"target": "home"
+				},
+				{
+					"pattern": "stationClock",
+					"name": "stationClock",
+					"target": "stationClock"
+				},
+				{
+					"pattern": "workOrderList",
+					"name": "workOrderList",
+					"target": "workOrderList"
+				},
+				{
+					"pattern": "addList",
+					"name": "addList",
+					"target": "addList"
+				},
+				{
+					"pattern": "editList",
+					"name": "editList",
+					"target": "editList"
+				},
+				{
+					"pattern": "infoList",
+					"name": "infoList",
+					"target": "infoList"
+				},
+				{
+					"pattern": "showMoney",
+					"name": "showMoney",
+					"target": "showMoney"
+				},
+				{
+					"pattern": "showImage",
+					"name": "showImage",
+					"target": "showImage"
+				}
+			],
+			"targets": {
+				"home": {
+					"viewName": "Home",
+					"viewLevel": 1
+				},
+				"stationClock": {
+					"viewName": "station",
+					"viewPath": "sap.ui.message.view.page.stationClock"
+				},
+				"workOrderList": {
+					"viewName": "orderList",
+					"viewPath": "sap.ui.message.view.page.workOrderExecution"
+				},
+				"addList": {
+					"viewName": "addList",
+					"viewPath": "sap.ui.message.view.page.workOrderExecution"
+				},
+				"editList": {
+					"viewName": "editList",
+					"viewPath": "sap.ui.message.view.page.workOrderExecution"
+				},
+				"infoList": {
+					"viewName": "infoList",
+					"viewPath": "sap.ui.message.view.page.workOrderExecution"
+				},
+				"showMoney": {
+					"viewName": "money",
+					"viewPath": "sap.ui.message.view.page.showMoney"
+				},
+				"showImage": {
+					"viewName": "image",
+					"viewPath": "sap.ui.message.view.page.showImage"
+				}
+			}
+		}
+	}
+}
